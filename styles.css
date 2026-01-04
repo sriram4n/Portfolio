@@ -118,3 +118,6 @@ main h3 {
   padding-left: 15px;
 }
 /*  */
+::selection{
+  background-color: #a1cebe;
+}
