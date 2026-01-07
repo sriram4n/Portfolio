@@ -1,4 +1,4 @@
-/* global */
+/* GLOBAL */
 * {
   margin: 0;
   padding: 0;
@@ -43,10 +43,13 @@ a {
   gap: 16px;
   animation: fadeUp 0.4s ease;
 }
-.home p{
-    color:dda15e;
-    padding: 8px;
+
+.home p {
+  color: #dda15e;
+  /* Fixed hex code missing # */
+  padding: 8px;
 }
+
 .home img {
   border-radius: 25%;
 }
@@ -58,9 +61,11 @@ nav a {
   color: #606c38;
   font-weight: 500;
 }
-nav a:hover{
+
+nav a:hover {
   text-decoration: underline;
 }
+
 /* INNER PAGES */
 .page {
   display: none;
@@ -75,7 +80,7 @@ nav a:hover{
 }
 
 /* HIDE HOME WHEN ANY PAGE IS ACTIVE */
-.page:target ~ .home {
+.page:target~.home {
   display: none;
 }
 
@@ -100,24 +105,103 @@ nav a:hover{
     opacity: 0;
     transform: translateY(14px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-/* paddings */
+
+/* PADDINGS */
 main p {
   padding: 15px;
 }
+
 main h2 {
   padding-bottom: 20px;
   padding-left: 15px;
 }
+
 main h3 {
   padding-top: 15px;
   padding-left: 15px;
 }
-/*  */
-::selection{
+
+/* SELECTION */
+::selection {
   background-color: #a1cebe;
+}
+
+/* SECRET HEART */
+.heart-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 4rem;
+  z-index: 9999;
+  pointer-events: none;
+  animation: heartFade 3s ease-in-out forwards;
+  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
+}
+
+@keyframes heartFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+
+  10% {
+    opacity: 1;
+    transform: scale(1.2) rotate(10deg);
+  }
+
+  20% {
+    transform: scale(1) rotate(-5deg);
+  }
+
+  30% {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1) translateY(-20px);
+  }
+}
+
+/* CLICK TOOLTIP */
+.click-tooltip {
+  position: absolute;
+  pointer-events: none;
+  /* background: rgba(40, 54, 24, 0.8); REMOVED BACKGROUND */
+  color: #606c38;
+  /* Using the link color or similar for contrast on background */
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 1rem;
+  /* Slightly larger since no bg */
+  font-weight: 600;
+  transform: translate(-50%, -150%);
+  white-space: nowrap;
+  animation: tooltipPop 0.8s ease-out forwards;
+  z-index: 1000;
+  text-shadow: 0 1px 2px rgba(254, 250, 224, 0.8);
+  /* Light shadow for contrast */
+}
+
+@keyframes tooltipPop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -140%);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -150%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -200%);
+  }
 }
